@@ -1,0 +1,27 @@
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: hsl(199, 33%, 15%);
+}
+
+.custom-button {
+  background-color: hsl(178, 60%, 48%);
+  color: hsl(199, 33%, 15%);
+  border: 0;
+  border-radius: 0.5em;
+  padding: 1em;
+  font-size: 2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 0.35em 0 0 hsl(178, 60%, 48%, 0.5);
+}
+
+.custom-button:active,
+.custom-button:focus-visible {
+  transform: translateY(0.35em);
+  box-shadow: none;
+}

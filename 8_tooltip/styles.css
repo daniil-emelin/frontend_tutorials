@@ -1,0 +1,48 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: #f0f7f8;
+}
+
+h1 {
+  font-size: 72px;
+  position: relative;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: #6aeeb5;
+}
+
+h1:hover {
+  color: #0a4542;
+}
+
+h1::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  font-size: 48px;
+  color: black;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.2rem;
+  box-shadow: 0px 0px 10px #cfd8dc;
+  left: -80%;
+  top: -100%;
+  clip-path: circle(0rem at center);
+  overflow: hidden;
+  transition: 300ms all ease-in;
+}
+
+h1:hover::before {
+  clip-path: circle(20rem at center);
+  top: -130%;
+}
