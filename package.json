@@ -23,6 +23,6 @@
     "prettier": "^3.0.3"
   },
   "lint-staged": {
-    "*.{js,html,css}": "npx prettier --check"
+    "*.{js,html,css}": "npx eslint --fix"
   }
 }
