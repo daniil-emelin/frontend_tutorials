@@ -1,0 +1,28 @@
+{
+  "name": "frontend_corner_frontend_tutorials",
+  "version": "1.0.0",
+  "description": "a lot of frontend little project for begginers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint-plugin-html": "^7.1.0",
+    "lint-staged": "^14.0.1",
+    "husky": "^8.0.0"
+  },
+  "dependencies": {
+    "@html-eslint/eslint-plugin": "^0.19.1",
+    "@html-eslint/parser": "^0.19.1",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.3"
+  },
+  "lint-staged": {
+    "*.{js,html,css}": "npx prettier --check"
+  }
+}
