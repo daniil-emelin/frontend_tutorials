@@ -1,0 +1,56 @@
+body {
+  background-color: #4a4a4a;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(1turn);
+  }
+}
+
+.card {
+  animation: spin 5s ease;
+  animation-iteration-count: infinite;
+}
+
+.container {
+  height: 100%;
+  padding: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  perspective: 1000px;
+}
+
+.card {
+  background-image: linear-gradient(-154deg, #ffffff 0%, #eceff2 100%);
+  border-radius: 8px;
+  width: 437px;
+  padding: 24px;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 12px 0;
+  min-height: 124px;
+  box-sizing: border-box;
+}
+
+.card--title {
+  color: #4a90e2;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.card--title:hover {
+  color: #ff4593;
+}
+
+.card--text {
+  color: #4a4a4a;
+  margin: 12px 0 0 0;
+}
