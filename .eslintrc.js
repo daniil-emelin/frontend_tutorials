@@ -17,8 +17,13 @@ module.exports = {
     {
       files: ["*.html"],
       parser: "@html-eslint/parser",
-      plugins: ["@html-eslint"],
+      plugins: ["check-brand-title", "@html-eslint"],
       extends: ["plugin:@html-eslint/recommended"],
+      rules: {
+        "check-brand-title/check-title": "error",
+        "@html-eslint/require-title": "off",
+        "@html-eslint/indent": ["error", 2]
+      },
     },
   ],
   parserOptions: {
@@ -26,6 +31,7 @@ module.exports = {
     sourceType: "module",
   },
   rules: {
+    "@html-eslint/require-title": "off",
     "@html-eslint/no-duplicate-id": "error",
     "@html-eslint/no-multiple-h1": "error",
     "@html-eslint/no-inline-styles": "error",

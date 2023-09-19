@@ -1,4 +1,4 @@
-* {
+*{
     box-sizing: border-box;
 }
 
@@ -30,7 +30,7 @@ figure {
     }
 }
 
-h1 {
+h2 {
     display: block;
     width: 100%;
     padding: 40px;
@@ -57,15 +57,15 @@ h1 {
     }
 }
 
-h1:nth-child(2) {
+h2:nth-child(2) {
     transform: translateZ(5px);
 }
 
-h1:nth-child(3) {
+h2:nth-child(3) {
     transform: translateZ(10px);
 }
 
-h1:nth-child(4) {
+h2:nth-child(4) {
     transform: translateZ(15px);
 }
 
@@ -73,22 +73,22 @@ h1:nth-child(5) {
     transform: translateZ(20px);
 }
 
-h1:nth-child(6) {
+h2:nth-child(6) {
     transform: translateZ(25px);
 }
 
-h1:nth-child(7) {
+h2:nth-child(7) {
     transform: translateZ(30px);
 }
 
-h1:nth-child(8) {
+h2:nth-child(8) {
     transform: translateZ(35px);
 }
 
-h1:nth-child(9) {
+h2:nth-child(9) {
     transform: translateZ(40px);
 }
 
-h1:nth-child(10) {
+h2:nth-child(10) {
     transform: translateZ(45px);
 }
