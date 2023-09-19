@@ -24,6 +24,6 @@
     "prettier": "^3.0.3"
   },
   "lint-staged": {
-    "*.{js,html,css}": "npx eslint"
+    "*.{js,html,css}": "npx eslint --ext html ."
   }
 }
