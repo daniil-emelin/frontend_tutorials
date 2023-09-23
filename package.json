@@ -12,18 +12,19 @@
   "dependencies": {
   },
   "devDependencies": {
-    "eslint-plugin-html": "^7.1.0",
-    "husky": "^8.0.0",
-    "lint-staged": "^14.0.1",
     "@html-eslint/eslint-plugin": "^0.19.1",
     "@html-eslint/parser": "^0.19.1",
-    "eslint": "^7.21.0",
+    "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-check-brand-title": "file:eslint-plugins",
+    "eslint-plugin-html": "^7.1.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-css": "^0.8.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
     "prettier": "^3.0.3"
   },
   "lint-staged": {
-    "*.{js,html,css}": "npx eslint --ext html ."
+    "*.{js,html,css}": "npx eslint --fix --ext html ."
   }
 }

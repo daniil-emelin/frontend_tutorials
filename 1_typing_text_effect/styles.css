@@ -17,5 +17,7 @@
   border-right: 0.08em solid;
   overflow: hidden;
   white-space: nowrap;
-  animation: typing 5s steps(11, end), caret 0.5s step-end infinite;
+  animation:
+    typing 5s steps(11, end),
+    caret 0.5s step-end infinite;
 }

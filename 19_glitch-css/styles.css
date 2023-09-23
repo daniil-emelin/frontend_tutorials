@@ -1,77 +1,77 @@
 body {
-    background-color: #111;
-    font-family: "Raleway";
-    color: white;
+  background-color: #111;
+  font-family: "Raleway";
+  color: white;
 }
 
 .center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .glitch-effect > div {
-    font-size: 80px;
-    text-transform: uppercase;
+  font-size: 80px;
+  text-transform: uppercase;
 }
 
 .glitch-effect > div:nth-child(4) {
-    color: #f5f5f5;
-    animation: moveDown 500ms ease-in-out infinite;
+  color: #f5f5f5;
+  animation: moveDown 500ms ease-in-out infinite;
 }
 
 @keyframes moveDown {
-    0%,
-    100% {
-        transform: translate(-50%, -50%);
-    }
-    50% {
-        transform: translate(-50%, -48.5%);
-    }
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -48.5%);
+  }
 }
 
 .glitch-effect > div:nth-child(3) {
-    color: blue;
-    animation: moveUp 500ms ease-in-out infinite;
+  color: blue;
+  animation: moveUp 500ms ease-in-out infinite;
 }
 
 @keyframes moveUp {
-    0%,
-    100% {
-        transform: translate(-50%, -50%);
-    }
-    50% {
-        transform: translate(-50%, -51.5%);
-    }
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -51.5%);
+  }
 }
 
 .glitch-effect > div:nth-child(2) {
-    color: green;
-    animation: moveRight 500ms ease-in-out infinite;
+  color: green;
+  animation: moveRight 500ms ease-in-out infinite;
 }
 
 @keyframes moveRight {
-    0%,
-    100% {
-        transform: translate(-50%, -50%);
-    }
-    50% {
-        transform: translate(-48.5%, -50%);
-    }
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-48.5%, -50%);
+  }
 }
 
 .glitch-effect > div:nth-child(1) {
-    color: orangered;
-    animation: moveLeft 500ms ease-in-out infinite;
+  color: orangered;
+  animation: moveLeft 500ms ease-in-out infinite;
 }
 
 @keyframes moveLeft {
-    0%,
-    100% {
-        transform: translate(-50%, -50%);
-    }
-    50% {
-        transform: translate(-51.5%, -50%);
-    }
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-51.5%, -50%);
+  }
 }

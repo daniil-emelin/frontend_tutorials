@@ -27,18 +27,31 @@ body {
 
 .main .header {
   color: #ffd9e2;
-  text-shadow: 0 0 0 transparent, 0 0 10px #ff003c,
-    0 0 20px rgba(255, 0, 60, 0.5), 0 0 40px #ff003c, 0 0 100px #ff003c,
-    0 0 200px #ff003c, 0 0 300px #ff003c, 0 0 500px #ff003c, 0 0 1000px #ff003c;
+  text-shadow:
+    0 0 0 transparent,
+    0 0 10px #ff003c,
+    0 0 20px rgba(255, 0, 60, 0.5),
+    0 0 40px #ff003c,
+    0 0 100px #ff003c,
+    0 0 200px #ff003c,
+    0 0 300px #ff003c,
+    0 0 500px #ff003c,
+    0 0 1000px #ff003c;
   animation: blink 4s infinite alternate;
 }
 
 .main .description {
   font-size: 11vw;
   color: #d4eaff;
-  text-shadow: 0 0 0 transparent, 0 0 10px #2695ff,
-    0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff,
-    0 0 200px #2695ff, 0 0 300px #2695ff, 0 0 500px #2695ff;
+  text-shadow:
+    0 0 0 transparent,
+    0 0 10px #2695ff,
+    0 0 20px rgba(38, 149, 255, 0.5),
+    0 0 40px #2695ff,
+    0 0 100px #2695ff,
+    0 0 200px #2695ff,
+    0 0 300px #2695ff,
+    0 0 500px #2695ff;
   animation: buzz 0.01s infinite alternate;
 }
 

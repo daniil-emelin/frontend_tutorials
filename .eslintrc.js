@@ -22,8 +22,16 @@ module.exports = {
       rules: {
         "check-brand-title/check-title": "error",
         "@html-eslint/require-title": "off",
-        "@html-eslint/indent": ["error", 2]
+        "@html-eslint/indent": ["error", 2],
+        "@html-eslint/require-closing-tags": "off",
+        "@html-eslint/no-extra-spacing-attrs": "off",
       },
+    },
+    {
+      files: ["*.css"],
+      plugins: ["css"],
+      extends: ["plugin:css/recommended"],
+      rules: {},
     },
   ],
   parserOptions: {
@@ -41,5 +49,6 @@ module.exports = {
     "@html-eslint/element-newline": "error",
     "@html-eslint/no-multiple-empty-lines": "error",
     "@html-eslint/no-trailing-spaces": "error",
+    "@html-eslint/require-closing-tags": "off",
   },
 };

@@ -26,7 +26,7 @@ const checkTitle = (context) => {
         if (!titleContentText.value.includes("Уголок фронтендера")) {
           context.report(
             node,
-            "В заголовке страницы не найдено название канала"
+            "В заголовке страницы не найдено название канала",
           );
         }
       }

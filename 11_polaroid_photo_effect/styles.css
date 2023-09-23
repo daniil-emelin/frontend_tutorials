@@ -5,7 +5,8 @@ html {
   --colorB: #33ffff88;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -62,7 +63,6 @@ body {
   position: absolute;
   box-shadow: inset 0 0 44px 0 #0003;
   border-radius: 2px;
-  background: 
-    linear-gradient(var(--angA), var(--colorA), #ffffff00),
+  background: linear-gradient(var(--angA), var(--colorA), #ffffff00),
     linear-gradient(var(--angB), var(--colorB), #ffffff00);
 }
