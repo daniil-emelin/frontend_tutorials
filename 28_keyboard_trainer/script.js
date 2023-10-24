@@ -13,6 +13,12 @@ const getRandomKey = () => {
 
 const targetRandomKey = () => {
   const key = document.getElementById(getRandomKey());
+  const keys = document.querySelectorAll(".keyboard ul li");
+
+  keys.forEach((key) => {
+    key.classList.remove("selected");
+    key.classList.remove("hit");
+  });
 
   key.classList.add("selected");
 };
@@ -32,21 +38,14 @@ document.addEventListener("keyup", (event) => {
 
     if (keyPressed === hightlightKey.id) {
       score = score + 1;
-
-      result.innerHTML = `Очки ${score + 1}`;
-
-      hightlightKey.classList.remove("selected");
-
-      targetRandomKey();
     } else {
       alert("Вы проиграли. Нажимайте внимательнее.");
       score = 0;
-      result.innerHTML = `Очки ${score}`;
-
-      hightlightKey.classList.remove("selected");
-
-      targetRandomKey();
     }
+
+    result.innerHTML = `Очки ${score}`;
+    hightlightKey.classList.remove("selected");
+    targetRandomKey();
   });
 });
 
