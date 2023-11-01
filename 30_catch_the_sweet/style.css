@@ -35,10 +35,6 @@ h1 {
   opacity: 0.9;
 }
 
-.btn:focus {
-  outline: 0;
-}
-
 .screen {
   display: none;
   flex-direction: column;
