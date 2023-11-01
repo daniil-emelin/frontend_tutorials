@@ -35,29 +35,25 @@ function startGame() {
 }
 
 function increaseTime() {
-  let m = Math.floor(seconds / 60);
   let s = seconds % 60;
 
-  m = m < 10 ? `0${m}` : m;
   s = s < 10 ? `0${s}` : s;
 
-  timeEl.innerHTML = `Время: ${m}:${s}`;
+  timeEl.innerHTML = `Время: ${s}`;
   seconds++;
 }
 
 function createSweet() {
-  const sweet = document.createElement("div");
-  sweet.classList.add("sweet");
   const { x, y } = getRandomLocation();
+
+  const sweet = document.createElement("img");
+  sweet.classList.add("sweet");
+  sweet.src = selectedSweet.src;
+  sweet.alt = selectedSweet.alt;
+  sweet.style.display = "block";
   sweet.style.top = `${y}px`;
   sweet.style.left = `${x}px`;
-
-  const sweetImg = document.createElement("img");
-  sweetImg.src = selectedSweet.src;
-  sweetImg.alt = selectedSweet.alt;
-  sweetImg.style.transform = `rotate(${Math.random() * 360}deg)`;
-
-  sweet.appendChild(sweetImg);
+  sweet.style.transform = `rotate(${Math.random() * 360}deg)`;
 
   sweet.addEventListener("click", catchSweet);
 
@@ -82,10 +78,10 @@ function playBiteSound() {
 
 function catchSweet() {
   playBiteSound();
-
   increaseScore();
-  this.classList.add("caught");
-  setTimeout(() => this.remove(), 2000);
+
+  this.remove();
+
   addSweets();
 }
 
