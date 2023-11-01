@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Уголок фронтендера: Сьешь конфетку</title>
+  </head>
+  <body>
+    <div class="screen visible">
+      <h2>Игра "Сьешь конфетку"</h2>
+      <button type="button" class="btn" id="start-btn">Начать игру</button>
+    </div>
+
+    <div class="screen">
+      <h2>Выбери любимую вкусняшку</h2>
+      <ul class="sweets-list">
+        <li>
+          <button type="button" class="choose-sweet-btn">
+            <p>Пончик</p>
+            <img src="./assets/donut.png" alt="donut" />
+          </button>
+        </li>
+        <li>
+          <button type="button" class="choose-sweet-btn">
+            <p>Кекс</p>
+            <img src="./assets/cupcake.png" alt="cupcake" />
+          </button>
+        </li>
+        <li>
+          <button type="button" class="choose-sweet-btn">
+            <p>Торт</p>
+            <img src="./assets/cake-slice.png" alt="cake-slice" />
+          </button>
+        </li>
+        <li>
+          <button type="button" class="choose-sweet-btn">
+            <p>Конфета</p>
+            <img src="./assets/candy.png" alt="candy" />
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="screen game-container" id="game-container">
+      <h3 id="time" class="time">Время: 00:00</h3>
+      <h3 id="score" class="score">Счет: 0</h3>
+      <h5 id="message" class="message">
+        Может хватит? <br />
+        Вы съели много сладостей.
+      </h5>
+    </div>
+    
+    <audio id="bite" src="./assets/bite.mp3"></audio>
+    <script src="script.js"></script>
+  </body>
+</html>
