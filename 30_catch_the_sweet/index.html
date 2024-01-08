@@ -16,25 +16,25 @@
       <h2>Выбери любимую вкусняшку</h2>
       <ul class="sweets-list">
         <li>
-          <button type="button" class="choose-sweet-btn">
+          <button type="button" class="choose-sweet-btn" data-id="donut">
             <p>Пончик</p>
             <img src="./assets/donut.png" alt="donut" />
           </button>
         </li>
         <li>
-          <button type="button" class="choose-sweet-btn">
+          <button type="button" class="choose-sweet-btn" data-id="cupcake">
             <p>Кекс</p>
             <img src="./assets/cupcake.png" alt="cupcake" />
           </button>
         </li>
         <li>
-          <button type="button" class="choose-sweet-btn">
+          <button type="button" class="choose-sweet-btn" data-id="cake-slice">
             <p>Торт</p>
             <img src="./assets/cake-slice.png" alt="cake-slice" />
           </button>
         </li>
         <li>
-          <button type="button" class="choose-sweet-btn">
+          <button type="button" class="choose-sweet-btn" data-id="candy">
             <p>Конфета</p>
             <img src="./assets/candy.png" alt="candy" />
           </button>
@@ -51,7 +51,10 @@
       </h5>
     </div>
 
-    <audio id="bite" src="./assets/bite.mp3"></audio>
+    <audio src="./assets/sounds/cake-slice.mp3" id="cake-slice"></audio>
+    <audio src="./assets/sounds/candy.mp3" id="candy"></audio>
+    <audio src="./assets/sounds/cupcake.mp3" id="cupcake"></audio>
+    <audio src="./assets/sounds/donut.mp3" id="donut"></audio>
     <script src="script.js"></script>
   </body>
 </html>

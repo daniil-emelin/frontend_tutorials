@@ -19,9 +19,9 @@ chooseSweetBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     const img = btn.querySelector("img");
     const src = img.getAttribute("src");
-    const alt = img.getAttribute("alt");
+    const sweetId = btn.getAttribute('data-id');
 
-    selectedSweet = { src, alt };
+    selectedSweet = { src, id: sweetId };
     screens[1].classList.remove("visible");
     screens[2].classList.add("visible");
 
@@ -71,7 +71,7 @@ function getRandomLocation() {
 }
 
 function playBiteSound() {
-  const audio = document.getElementById("bite");
+  const audio = document.getElementById(selectedSweet.id);
 
   audio.play();
 }
