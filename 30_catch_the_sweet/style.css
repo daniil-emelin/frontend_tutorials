@@ -1,138 +1,110 @@
-@import url("https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@500&display=swap");
-
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: #faedcd;
-  color: #d4a373;
-  font-family: "Shantell Sans", cursive;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-  text-align: center;
-}
-
-a {
-  color: #d4a373;
-}
-
-h1 {
-  line-height: 1.4;
-}
-
-.btn {
-  border: 0;
-  background-color: #d4a373;
-  color: #fefae0;
-  padding: 15px 20px;
-  font-family: inherit;
-  cursor: pointer;
-}
-
-.btn:hover {
-  opacity: 0.9;
+    background-color: #faedcd;
+    color: #d4a373;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    text-align: center;
 }
 
 .screen {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
 }
 
 .screen.visible {
-  display: flex;
+    display: flex;
+}
+
+.btn {
+    border: 0;
+    background-color: #d4a373;
+    color: #fefae0;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.9;
 }
 
 .sweets-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style-type: none;
-  padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
 }
 
 .sweets-list li {
-  margin: 10px;
+    margin: 10px;
 }
 
 .choose-sweet-btn {
-  background-color: transparent;
-  border: 2px solid #d4a373;
-  color: #d4a373;
-  cursor: pointer;
-  font-family: inherit;
-  width: 150px;
-  height: 150px;
-}
-
-.choose-sweet-btn:hover {
-  background-color: #fefae0;
-}
-
-.choose-sweet-btn:active {
-  background-color: rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    border: 2px solid #d4a373;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    font-family: inherit;
+    color: #d4a373;
 }
 
 .choose-sweet-btn img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.choose-sweet-btn:hover {
+    background-color: #fefae0;
 }
 
 .game-container {
-  position: relative;
+    position: relative;
 }
 
-.time,
-.score {
-  position: absolute;
-  top: 20px;
+.time, .score {
+    position: absolute;
+    top: 20px;
 }
 
 .time {
-  left: 20px;
+    left: 20px;
 }
 
 .score {
-  right: 20px;
+    right: 20px;
 }
 
 .message {
-  line-height: 1.7;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  padding: 20px;
-  z-index: 100;
-  text-align: center;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -150%);
-  transition: transform 0.4s ease-in;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 20px;
+    position: absolute;
+    top: -100px;
 }
 
 .message.visible {
-  transform: translate(-50%, 150%);
-  opacity: 1;
+    top: 40px;
 }
 
 .sweet {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-  position: absolute;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    position: absolute;
 }
 
 .sweet img {
-  width: 100px;
-  height: 100px;
+    width: 100px;
+    height: 100px;
 }

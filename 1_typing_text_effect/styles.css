@@ -1,3 +1,15 @@
+.typing-text {
+  font-family: monospace;
+  width: 11ch;
+  font-size: 4em;
+  border-right: 0.08em solid;
+  overflow: hidden;
+  white-space: nowrap;
+  animation:
+    typing 5s steps(11, end),
+    caret 0.5s step-end infinite;
+}
+
 @keyframes typing {
   from {
     width: 0;
@@ -8,16 +20,4 @@
   50% {
     border-color: transparent;
   }
-}
-
-.typingText {
-  font-family: monospace;
-  width: 11ch;
-  font-size: 4em;
-  border-right: 0.08em solid;
-  overflow: hidden;
-  white-space: nowrap;
-  animation:
-    typing 5s steps(11, end),
-    caret 0.5s step-end infinite;
 }

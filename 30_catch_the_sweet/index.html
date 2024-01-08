@@ -8,50 +8,51 @@
   </head>
   <body>
     <div class="screen visible">
-      <h2>Игра "Сьешь конфетку"</h2>
+      <h2>Игра "Сьешь вкусняшку"</h2>
       <button type="button" class="btn" id="start-btn">Начать игру</button>
     </div>
-
     <div class="screen">
       <h2>Выбери любимую вкусняшку</h2>
       <ul class="sweets-list">
         <li>
-          <button type="button" class="choose-sweet-btn">
+          <button type="button" class="choose-sweet-btn" data-id="donut">
             <p>Пончик</p>
-            <img src="./assets/donut.png" alt="donut" />
+            <img src="./assets/donut.png" alt="Пончик">
           </button>
         </li>
         <li>
-          <button type="button" class="choose-sweet-btn">
+          <button type="button" class="choose-sweet-btn" data-id="cupcake">
             <p>Кекс</p>
-            <img src="./assets/cupcake.png" alt="cupcake" />
+            <img src="./assets/cupcake.png" alt="Кекс">
           </button>
         </li>
         <li>
-          <button type="button" class="choose-sweet-btn">
+          <button type="button" class="choose-sweet-btn" data-id="cake-slice">
             <p>Торт</p>
-            <img src="./assets/cake-slice.png" alt="cake-slice" />
+            <img src="./assets/cake-slice.png" alt="Торт">
           </button>
         </li>
         <li>
-          <button type="button" class="choose-sweet-btn">
+          <button type="button" class="choose-sweet-btn" data-id="candy">
             <p>Конфета</p>
-            <img src="./assets/candy.png" alt="candy" />
+            <img src="./assets/candy.png" alt="Конфета">
           </button>
         </li>
       </ul>
     </div>
-
     <div class="screen game-container" id="game-container">
-      <h3 id="time" class="time">Время: 00</h3>
-      <h3 id="score" class="score">Счет: 0</h3>
-      <h5 id="message" class="message">
-        Может хватит? <br />
-        Вы съели много сладостей.
+      <h3 class="time" id="time">Время 0</h3>
+      <h3 class="score" id="score">Очки 0</h3>
+      <h5 class="message" id="message">
+        Может хватит? <br>
+        Вы сьели много сладостей.
       </h5>
     </div>
 
-    <audio id="bite" src="./assets/bite.mp3"></audio>
+    <audio src="./assets/sounds/cake-slice.mp3" id="cake-slice"></audio>
+    <audio src="./assets/sounds/candy.mp3" id="candy"></audio>
+    <audio src="./assets/sounds/cupcake.mp3" id="cupcake"></audio>
+    <audio src="./assets/sounds/donut.mp3" id="donut"></audio>
     <script src="script.js"></script>
   </body>
 </html>
