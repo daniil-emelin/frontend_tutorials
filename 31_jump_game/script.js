@@ -12,8 +12,8 @@ const FLOOR_COLOR = Color.fromHex("#009A17");
 
 setBackground(BACKGROUND_COLOR);
 
-loadSprite("truck", "/sprites/truck.png");
-loadSprite("block", "/sprites/block.png");
+loadSprite("truck", "./sprites/truck.png");
+loadSprite("block", "./sprites/block.png");
 
 scene("game", () => {
   setGravity(2000);
