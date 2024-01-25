@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Уголок фронтендера: Кто хочет стать миллионером?</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="screen visible">
+      <h2 class="heading">Кто хочет стать миллионером?</h2>
+      <button type="button" class="start-game button">Начать игру</button>
+    </div>
+
+    <div class="screen">
+      <img src="./assets/players.png" alt="Игроки" />
+      <h2 class="heading question">Кто хочет стать миллионером?</h2>
+
+      <ul class="answer-list">
+        <li>
+          <button type="button" class="answer button">1</button>
+        </li>
+        <li>
+          <button type="button" class="answer button">2</button>
+        </li>
+        <li>
+          <button type="button" class="answer button">3</button>
+        </li>
+        <li>
+          <button type="button" class="answer button">4</button>
+        </li>
+      </ul>
+
+      <h2 class="heading">
+        Заработано: <span class="money">0</span>
+      </h2>
+    </div>
+
+    <div class="screen">
+      <h2 class="heading">Вы проиграли</h2>
+      <button type="button" class="start-game button">Начать игру</button>
+    </div>
+
+    <div class="screen">
+      <h2 class="heading">Вы выиграли</h2>
+      <h2>
+        Заработано: <span class="money">0</span>
+      </h2>
+      <button type="button" class="start-game button">Начать игру</button>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
