@@ -1,27 +1,27 @@
 const QUESTIONS = [
   {
     text: "Какой фрукт считается источником витамина C?",
-    variants: ["Банан", "Апельсин", "Груша", "Арбуз"],
+    options: ["Банан", "Апельсин", "Груша", "Арбуз"],
     rightIndex: 1,
   },
   {
     text: "Какой из этих городов является столицей Австралии?",
-    variants: ["Сидней", "Мельбурн", "Канберра", "Брисбен"],
+    options: ["Сидней", "Мельбурн", "Канберра", "Брисбен"],
     rightIndex: 2,
   },
   {
     text: "Какое из следующих чисел является простым числом?",
-    variants: ["25", "37", "42", "50"],
+    options: ["25", "37", "42", "50"],
     rightIndex: 1,
   },
   {
     text: "Какой элемент используется в большинстве ламп накаливания для создания света?",
-    variants: ["Гелий", "Ксенон", "Натрий", "Вольфрам"],
+    options: ["Гелий", "Ксенон", "Натрий", "Вольфрам"],
     rightIndex: 3,
   },
   {
     text: "Какой химический элемент представлен символом Fe в периодической таблице?",
-    variants: ["Свинец", "Железо", "Фтор", "Фосфор"],
+    options: ["Свинец", "Железо", "Фтор", "Фосфор"],
     rightIndex: 1,
   },
 ];
@@ -31,6 +31,7 @@ const START_GAME_BUTTONS = document.querySelectorAll(".start-game");
 const SCREEN_NODES = document.querySelectorAll(".screen");
 const ANSWER_NODES = document.querySelectorAll(".answer");
 const PRIZE_FOR_RIGHT_ANSWER = 5000;
+const HIGHLIGHT_TIMEOUT_MS = 1500;
 
 let activeQuestionIndex = 0;
 let money = 0;
@@ -40,6 +41,11 @@ START_GAME_BUTTONS.forEach((button) =>
 );
 
 function startNewGame() {
+  if (QUESTIONS.length === 0) {
+    console.error('Заполните массив с вопросами');
+    return;
+  }
+
   updateMoneyDisplay(0);
   setActiveQuestion(0);
   showScreen(1);
@@ -71,10 +77,15 @@ function showScreen(index) {
 }
 
 function setupAnswers(question) {
+  if (question.options.length !== 4 ) {
+    console.error('Укажите 4 варианта ответа для вопросов');
+    return;
+  }
+
   ANSWER_NODES.forEach((answerNode, index) => {
     const letters = ["A", "B", "C", "D"];
 
-    answerNode.textContent = `${letters[index]}. ${question.variants[index]}`;
+    answerNode.textContent = `${letters[index]}. ${question.options[index]}`;
 
     answerNode.addEventListener("click", () =>
       handleAnswerClick(answerNode, question)
@@ -89,13 +100,13 @@ async function handleAnswerClick(answerNode, question) {
 
   question.isChecking = true;
 
-  await highlightAnswer(answerNode, "active", 2000);
+  await highlightAnswer(answerNode, "active", HIGHLIGHT_TIMEOUT_MS);
 
   const rightAnswerNode = ANSWER_NODES[question.rightIndex];
 
   const isRightAnswer = answerNode.textContent === rightAnswerNode.textContent;
 
-  await highlightAnswer(rightAnswerNode, "right", 1000);
+  await highlightAnswer(rightAnswerNode, "right", HIGHLIGHT_TIMEOUT_MS);
 
   if (!isRightAnswer) {
     gameOver("lose");
