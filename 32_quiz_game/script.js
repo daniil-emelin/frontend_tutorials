@@ -1,27 +1,27 @@
 const QUESTIONS = [
   {
     text: "Какой фрукт считается источником витамина C?",
-    options: ["Банан", "Апельсин", "Груша", "Арбуз"],
+    answers: ["Банан", "Апельсин", "Груша", "Арбуз"],
     rightIndex: 1,
   },
   {
     text: "Какой из этих городов является столицей Австралии?",
-    options: ["Сидней", "Мельбурн", "Канберра", "Брисбен"],
+    answers: ["Сидней", "Мельбурн", "Канберра", "Брисбен"],
     rightIndex: 2,
   },
   {
     text: "Какое из следующих чисел является простым числом?",
-    options: ["25", "37", "42", "50"],
+    answers: ["25", "37", "42", "50"],
     rightIndex: 1,
   },
   {
     text: "Какой элемент используется в большинстве ламп накаливания для создания света?",
-    options: ["Гелий", "Ксенон", "Натрий", "Вольфрам"],
+    answers: ["Гелий", "Ксенон", "Натрий", "Вольфрам"],
     rightIndex: 3,
   },
   {
     text: "Какой химический элемент представлен символом Fe в периодической таблице?",
-    options: ["Свинец", "Железо", "Фтор", "Фосфор"],
+    answers: ["Свинец", "Железо", "Фтор", "Фосфор"],
     rightIndex: 1,
   },
 ];
@@ -77,7 +77,7 @@ function showScreen(index) {
 }
 
 function setupAnswers(question) {
-  if (question.options.length !== 4 ) {
+  if (question.answers.length !== 4 ) {
     console.error('Укажите 4 варианта ответа для вопросов');
     return;
   }
@@ -85,7 +85,7 @@ function setupAnswers(question) {
   ANSWER_NODES.forEach((answerNode, index) => {
     const letters = ["A", "B", "C", "D"];
 
-    answerNode.textContent = `${letters[index]}. ${question.options[index]}`;
+    answerNode.textContent = `${letters[index]}. ${question.answers[index]}`;
 
     answerNode.addEventListener("click", () =>
       handleAnswerClick(answerNode, question)
