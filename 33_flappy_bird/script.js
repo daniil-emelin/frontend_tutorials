@@ -26,6 +26,10 @@ loadSound("hit", "/sounds/hit.mp3");
 setGravity(GRAVITY);
 setBackground(BACKGROUND_COLOR);
 
+const startGame = () => {
+  go("game");
+}
+
 scene("game", () => {
   let score = 0;
   const game = add([timer()]);
@@ -137,8 +141,8 @@ scene("lose", (score) => {
     anchor("center"),
   ]);
 
-  onKeyPress("space", () => go("game"));
-  onClick(() => go("game"));
+  onKeyPress("space", startGame);
+  onClick(startGame);
 });
 
-go("game");
+startGame();
