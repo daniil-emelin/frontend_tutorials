@@ -17,8 +17,6 @@ const JUMP_FORCE = 800;
 const SPEED = 320;
 const CEILING = -60;
 
-let score = 0;
-
 loadSprite("bird", "/sprites/bird.png");
 
 loadSound("score", "/sounds/score.mp3");
@@ -29,6 +27,7 @@ setGravity(GRAVITY);
 setBackground(BACKGROUND_COLOR);
 
 scene("game", () => {
+  let score = 0;
   const game = add([timer()]);
 
   const createBird = () => {
@@ -112,6 +111,7 @@ scene("game", () => {
       text(score),
       anchor("center"),
       pos(WIDTH / 2, 80),
+      scale(2),
       fixed(),
       z(100),
     ]);
