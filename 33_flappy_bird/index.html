@@ -1,11 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Уголок фронтендера: flappy bird</title>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div class="main-menu">
+      <label for="player-name">Введите имя игрока</label>
+      <input type="text" id="player-name" />
+      <button type="button" id="run-game">Запустить игру</button>
+    </div>
     <script src="https://unpkg.com/kaboom@3000.1.17/dist/kaboom.js"></script>
     <script src="./script.js"></script>
   </body>
