@@ -1,0 +1,10 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#arkanoid {
+  background: #eee;
+  display: block;
+  margin: 0 auto;
+}
