@@ -1,148 +1,161 @@
 /* eslint-disable no-undef */
-kaboom();
+const PLAYERNAME_INPUT = document.querySelector("#player-name");
+const RUN_GAME_BUTTON = document.querySelector("#run-game");
 
-const GRAVITY = 3200;
-const WIDTH = width();
-const HEIGHT = height();
+const runGame = (name) => {
+  kaboom();
 
-const BACKGROUND_COLOR = Color.fromHex("#b6e5ea");
-const PIPE_COLOR = Color.fromHex("#74c02e");
+  let playerName = name;
 
-const PIPE_WIDTH = 64;
-const PIPE_BORDER = 4;
-const PIPE_OPEN = 240;
-const PIPE_MIN_HEIGHT = 60;
+  const GRAVITY = 3200;
+  const WIDTH = width();
+  const HEIGHT = height();
 
-const JUMP_FORCE = 800;
-const SPEED = 320;
-const CEILING = -60;
+  const BACKGROUND_COLOR = Color.fromHex("#b6e5ea");
+  const PIPE_COLOR = Color.fromHex("#74c02e");
 
-loadSprite("bird", "/sprites/bird.png");
+  const PIPE_WIDTH = 64;
+  const PIPE_BORDER = 4;
+  const PIPE_OPEN = 240;
+  const PIPE_MIN_HEIGHT = 60;
 
-loadSound("score", "/sounds/score.mp3");
-loadSound("jump", "/sounds/jump.mp3");
-loadSound("hit", "/sounds/hit.mp3");
+  const JUMP_FORCE = 800;
+  const SPEED = 320;
+  const CEILING = -60;
 
-setGravity(GRAVITY);
-setBackground(BACKGROUND_COLOR);
+  loadSprite("bird", "/sprites/bird.png");
 
-const startGame = () => {
-  go("game");
-}
+  loadSound("score", "/sounds/score.mp3");
+  loadSound("jump", "/sounds/jump.mp3");
+  loadSound("hit", "/sounds/hit.mp3");
 
-scene("game", () => {
-  let score = 0;
-  const game = add([timer()]);
+  setGravity(GRAVITY);
 
-  const createBird = () => {
-    const bird = game.add([
-      sprite("bird"),
-      pos(WIDTH / 4, 0),
-      area(),
-      body(),
-    ]);
+  setBackground(BACKGROUND_COLOR);
 
-    return bird;
+  const startGame = () => {
+    go("game");
   };
 
-  const bird = createBird();
+  scene("game", () => {
+    let score = 0;
 
-  const jump = () => {
-    bird.jump(JUMP_FORCE);
-    play("jump");
-  }
+    const game = add([timer()]);
 
-  onKeyPress("space", jump);
-  onClick(jump);
+    const createBird = () => {
+      const bird = game.add([
+        sprite("bird"),
+        pos(WIDTH / 4, 0),
+        area(),
+        body(),
+      ]);
 
-  const createPipes = () => {
-    const bottomPipeHeight = rand(
-      PIPE_MIN_HEIGHT,
-      HEIGHT - PIPE_MIN_HEIGHT - PIPE_OPEN
-    );
+      return bird;
+    };
 
-    const topPipeHeight = HEIGHT - bottomPipeHeight - PIPE_OPEN;
+    const bird = createBird();
 
-    game.add([
-      pos(width(), 0),
-      rect(PIPE_WIDTH, bottomPipeHeight),
-      color(PIPE_COLOR),
-      outline(PIPE_BORDER),
-      area(),
-      move(LEFT, SPEED),
-      offscreen({ destroy: true }),
-      "pipe",
-    ]);
+    const jump = () => {
+      bird.jump(JUMP_FORCE);
+      play("jump");
+    };
 
-    game.add([
-      pos(WIDTH, bottomPipeHeight + PIPE_OPEN),
-      rect(PIPE_WIDTH, topPipeHeight),
-      color(PIPE_COLOR),
-      outline(PIPE_BORDER),
-      area(),
-      move(LEFT, SPEED),
-      offscreen({ destroy: true }),
-      "pipe",
-      { passed: false },
-    ]);
-  };
+    onClick(jump);
+    onKeyPress("space", jump);
 
-  game.loop(1, createPipes);
+    const createPipes = () => {
+      const topPipeHeight = rand(
+        PIPE_MIN_HEIGHT,
+        HEIGHT - PIPE_MIN_HEIGHT - PIPE_OPEN
+      );
 
-  bird.onUpdate(() => {
-    const birdPosY = bird.pos.y;
+      const bottomPipeHeight = HEIGHT - topPipeHeight - PIPE_OPEN;
 
-    if (birdPosY >= HEIGHT || birdPosY <= CEILING) {
+      game.add([
+        rect(PIPE_WIDTH, topPipeHeight),
+        pos(WIDTH, 0),
+        color(PIPE_COLOR),
+        outline(PIPE_BORDER),
+        area(),
+        move(LEFT, SPEED),
+        offscreen({ destroy: true }),
+        "pipe",
+      ]);
+
+      game.add([
+        rect(PIPE_WIDTH, bottomPipeHeight),
+        pos(WIDTH, topPipeHeight + PIPE_OPEN),
+        color(PIPE_COLOR),
+        outline(PIPE_BORDER),
+        area(),
+        move(LEFT, SPEED),
+        offscreen({ destroy: true }),
+        "pipe",
+        { passed: false },
+      ]);
+    };
+
+    game.loop(1, createPipes);
+
+    bird.onUpdate(() => {
+      const birdPosY = bird.pos.y;
+
+      if (birdPosY > HEIGHT || birdPosY <= CEILING) {
+        go("lose");
+      }
+    });
+
+    bird.onCollide(() => {
+      play("hit");
       go("lose", score);
-    }
+    });
+
+    const createScoreLabel = () => {
+      const scoreLabel = game.add([
+        text(score),
+        anchor("center"),
+        pos(WIDTH / 2, 80),
+        scale(2),
+        fixed(),
+        z(100),
+      ]);
+
+      return scoreLabel;
+    };
+
+    const scoreLabel = createScoreLabel();
+
+    const addScore = () => {
+      score++;
+      scoreLabel.text = score;
+
+      play("score");
+    };
+
+    onUpdate("pipe", (pipe) => {
+      if (bird.pos.x > pipe.pos.x + pipe.width && pipe.passed === false) {
+        addScore();
+
+        pipe.passed = true;
+      }
+    });
   });
 
-  bird.onCollide("pipe", () => {
-    play("hit");
-    go("lose", score);
-  });
-
-  onUpdate("pipe", (pipe) => {
-    if (pipe.pos.x + pipe.width <= bird.pos.x && pipe.passed === false) {
-      addScore();
-
-      pipe.passed = true;
-    }
-  });
-
-  const createScoreLabel = () => {
-    const scoreLabel = game.add([
-      text(score),
+  scene("lose", (score = 0) => {
+    add([
+      text(playerName + ". Очков: " + score),
+      pos(center()),
+      scale(3),
       anchor("center"),
-      pos(WIDTH / 2, 80),
-      scale(2),
-      fixed(),
-      z(100),
     ]);
 
-    return scoreLabel;
-  };
+    onKeyPress("space", startGame);
+    onClick(startGame);
+  });
 
-  const scoreLabel = createScoreLabel();
+  startGame();
+};
 
-  const addScore = () => {
-    score++;
-    scoreLabel.text = score;
-
-    play("score");
-  };
+RUN_GAME_BUTTON.addEventListener("click", () => {
+  runGame(PLAYERNAME_INPUT.value);
 });
-
-scene("lose", (score) => {
-  add([
-    text("Набрано очков: " + score),
-    pos(center()),
-    scale(3),
-    anchor("center"),
-  ]);
-
-  onKeyPress("space", startGame);
-  onClick(startGame);
-});
-
-startGame();
